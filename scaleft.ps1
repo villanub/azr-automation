@@ -1,22 +1,22 @@
-﻿Param($enrollment_token)
+﻿Param($enrollment_token);
 write-output $enrollment_token;
 $hostname = hostname;
 write-output = "hostname $hostname";
 
-### ScaleFT Paths
+### ScaleFT Paths;
 $scaleft_path = "C:\windows\system32\config\systemprofile\AppData\Local\ScaleFT\"; 
 $enrollment_token_path = $scaleft_path + "enrollment.token"; 
 $device_token_path = $scaleft_path + "state\device.token";
 $sftconfigfilepath = $scaleft_path + "sftd.yaml";
 
-### OS Check
+### OS Check;
 $OSversion = (Get-WmiObject -class Win32_OperatingSystem).Caption;
 	If ($OSversion -notlike "*Windows Server*")
 	{
     		Write-Output "Unsupported OS: $OSversion";
     		return;
     	}
-### See if scaleft is already installed
+### See if scaleft is already installed;
 $serviceStauts = get-service scaleft-server-tools;
 
 	If ($serviceStauts.Status -eq "Running" -and (Test-Path $device_token_path))
