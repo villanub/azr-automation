@@ -29,8 +29,7 @@ $serviceStauts = get-service scaleft-server-tools;
 	{
         Invoke-WebRequest -uri "https://dist.scaleft.com/server-tools/windows/latest/ScaleFT-Server-Tools-latest.msi" -OutFile "$env:TEMP\scaleft.msi" -Verbose;
 
-        $enrollment_token = "eyJzIjoiYmM0N2Q1ZTMtZDMzMy00ZTk5LWI2Y2QtMzZiZmQzNDk5MDI5IiwidSI6Imh0dHBzOi8vYXBwLnNjYWxlZnQuY29tIn0=";
-        #$enrollment_token | Out-File $enrollment_token_path -Encoding "ASCII" -Force;
+        $enrollment_token | Out-File $enrollment_token_path -Encoding "ASCII" -Force;
         $scaleft_path = "C:\windows\system32\config\systemprofile\AppData\Local\ScaleFT\"; 
         $enrollment_token_path = $scaleft_path + "enrollment.token"; 
         $device_token_path = $scaleft_path + "state\device.token";
