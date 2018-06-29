@@ -1,5 +1,3 @@
-Param($enrollment_token);
-
 $scaleft_path = "C:\windows\system32\config\systemprofile\AppData\Local\ScaleFT\"; 
 $enrollment_token_path = $scaleft_path + "enrollment.token"; 
 $device_token_path = $scaleft_path + "state\device.token";
