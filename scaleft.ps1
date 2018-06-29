@@ -20,8 +20,6 @@ $serviceStauts = get-service scaleft-server-tools;
         $device_token_path = $scaleft_path + "state\device.token";
         $sftconfigfilepath = $scaleft_path + "sftd.yaml";
 
-        mkdir "C:\windows\system32\config\systemprofile\AppData\Local\ScaleFT\";
-
         $enrollment_token | Out-File $enrollment_token_path -Encoding "ASCII" -Force;
 
         Start-Process C:\Windows\System32\msiexec.exe -ArgumentList "/qn /I $env:TEMP\scaleft.msi" -Wait -NoNewWindow -Verbose;
