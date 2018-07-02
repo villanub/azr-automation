@@ -7,6 +7,7 @@ $serviceStauts = get-service scaleft-server-tools;
 
 	If ($serviceStauts.Status -eq "Running")
 	{
+		Write-host "ScaleFT is running";
 		return;		
 	}
 
