@@ -5,7 +5,7 @@ $sftconfigfilepath = $scaleft_path + "sftd.yaml";
 
 $serviceStauts = get-service scaleft-server-tools;
 
-	If ($serviceStauts.Status -eq "Running")
+	If ($serviceStauts.Status -eq "Running" -and (Test-Path $device_token_path))
 	{
 		Write-host "ScaleFT is running";
 		return;		
